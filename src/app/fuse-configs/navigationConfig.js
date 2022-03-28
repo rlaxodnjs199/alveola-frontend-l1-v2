@@ -16,12 +16,12 @@ const navigationConfig = [
     icon: 'apps',
     children: [
       {
-        id: 'example-component',
-        title: 'Example',
-        translate: 'EXAMPLE',
+        id: 'dashboard',
+        title: 'Dashboard',
+        translate: 'DASHBOARD',
         type: 'item',
         icon: 'whatshot',
-        url: 'example',
+        url: 'dashboard',
       },
     ],
   },
