@@ -11,7 +11,7 @@ import AppContext from './AppContext';
 import routes from './fuse-configs/routesConfig';
 import store from './store';
 
-const withAppProviders = (Component) => (props) => {
+const withAppProviders = Component => props => {
   const WrapperComponent = () => (
     <AppContext.Provider
       value={{
