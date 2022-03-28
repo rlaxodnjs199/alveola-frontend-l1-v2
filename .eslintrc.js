@@ -16,25 +16,7 @@ module.exports = {
     },
   },
   rules: {
-    // Prettier configs based on airbnb guide
-    'prettier/prettier': [
-      'warn',
-      {
-        arrowParens: 'always',
-        bracketSpacing: true,
-        jsxBracketSameLine: false,
-        jsxSingleQuote: false,
-        printWidth: 100,
-        proseWrap: 'always',
-        quoteProps: 'as-needed',
-        semi: true,
-        singleQuote: true,
-        tabWidth: 2,
-        trailingComma: 'es5',
-        useTabs: false,
-        endOfLine: 'auto',
-      },
-    ],
+    'prettier/prettier': 'error',
     'react/jsx-filename-extension': [
       'warn',
       {

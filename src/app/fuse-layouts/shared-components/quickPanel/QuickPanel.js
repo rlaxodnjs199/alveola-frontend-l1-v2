@@ -8,7 +8,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import reducer from './store';
 import { toggleQuickPanel } from './store/stateSlice';
 
-
 const StyledSwipeableDrawer = styled(SwipeableDrawer)(({ theme }) => ({
   '& .MuiDrawer-paper': {
     width: 280,
@@ -23,8 +22,8 @@ function QuickPanel(props) {
     <StyledSwipeableDrawer
       open={state}
       anchor="right"
-      onOpen={(ev) => {}}
-      onClose={(ev) => dispatch(toggleQuickPanel())}
+      onOpen={ev => {}}
+      onClose={ev => dispatch(toggleQuickPanel())}
       disableSwipeToOpen
     >
       <FuseScrollbars>
