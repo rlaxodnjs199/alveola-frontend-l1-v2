@@ -16,7 +16,7 @@ module.exports = {
     },
   },
   rules: {
-    'prettier/prettier': 'error',
+    'prettier/prettier': 'off',
     'react/jsx-filename-extension': [
       'warn',
       {
@@ -24,6 +24,7 @@ module.exports = {
       },
     ],
     'import/no-extraneous-dependencies': ['warn', { devDependencies: true }],
+    'import/prefer-default-export': 'off',
     'no-unused-vars': 'off',
     'no-console': 'off',
     'no-use-before-define': 'off',
