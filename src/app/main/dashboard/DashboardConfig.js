@@ -1,4 +1,4 @@
-import Dashboard from './Dashboard';
+import QCTWorksheet from './qctworksheet/QCTWorksheet';
 
 const DashboardConfig = {
   settings: {
@@ -8,8 +8,12 @@ const DashboardConfig = {
   },
   routes: [
     {
-      path: 'dashboard',
-      element: <Dashboard />,
+      path: 'dashboard/qctworksheet',
+      element: <QCTWorksheet />,
+    },
+    {
+      path: 'dashboard/qctworksheet',
+      element: <QCTWorksheet />,
     },
   ],
 };

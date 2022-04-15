@@ -9,19 +9,27 @@ i18next.addResourceBundle('ar', 'navigation', ar);
 
 const navigationConfig = [
   {
-    id: 'applications',
-    title: 'Applications',
-    translate: 'APPLICATIONS',
+    id: 'dashboard',
+    title: 'Dashboard',
+    translate: 'DASHBOARD',
     type: 'group',
     icon: 'apps',
     children: [
       {
-        id: 'dashboard',
-        title: 'Dashboard',
-        translate: 'DASHBOARD',
+        id: 'qctworksheet',
+        title: 'QCTWorksheet',
+        translate: 'QCTWORKSHEET',
         type: 'item',
-        icon: 'whatshot',
-        url: 'dashboard',
+        icon: 'assignment',
+        url: 'dashboard/qctworksheet',
+      },
+      {
+        id: 'vidasheet',
+        title: 'VidaSheet',
+        translate: 'VIDASHEET',
+        type: 'item',
+        icon: 'assignment',
+        url: 'dashboard/vidasheet',
       },
     ],
   },

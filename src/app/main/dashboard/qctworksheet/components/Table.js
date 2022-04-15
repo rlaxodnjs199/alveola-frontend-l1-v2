@@ -21,10 +21,10 @@ import {
 } from 'react-table';
 import TablePaginationActions from '@mui/material/TablePagination/TablePaginationActions';
 
-const TableInstance = ({ tableData }) => {
+const TableInstance = ({ projectData }) => {
   const [columns, data] = useMemo(() => {
-    return [tableData.columns, tableData.rows];
-  }, [tableData]);
+    return [projectData.columns, projectData.rows];
+  }, [projectData]);
 
   const {
     getTableProps,

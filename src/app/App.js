@@ -3,6 +3,7 @@ import FuseAuthorization from '@fuse/core/FuseAuthorization';
 import FuseLayout from '@fuse/core/FuseLayout';
 import FuseTheme from '@fuse/core/FuseTheme';
 import { SnackbarProvider } from 'notistack';
+import { QueryClient, QueryClientProvider } from 'react-query';
 import { useSelector } from 'react-redux';
 import rtlPlugin from 'stylis-plugin-rtl';
 import createCache from '@emotion/cache';
@@ -33,32 +34,35 @@ const emotionCacheOptions = {
 };
 
 const App = () => {
+  const queryClient = new QueryClient();
   const langDirection = useSelector(selectCurrLangDir);
 
   return (
-    <CacheProvider value={createCache(emotionCacheOptions[langDirection])}>
-      <Auth>
-        <BrowserRouter>
-          <FuseAuthorization>
-            <FuseTheme>
-              <SnackbarProvider
-                maxSnack={5}
-                anchorOrigin={{
-                  vertical: 'bottom',
-                  horizontal: 'right',
-                }}
-                classes={{
-                  containerRoot:
-                    'bottom-0 right-0 mb-52 md:mb-68 mr-8 lg:mr-80 z-99',
-                }}
-              >
-                <FuseLayout />
-              </SnackbarProvider>
-            </FuseTheme>
-          </FuseAuthorization>
-        </BrowserRouter>
-      </Auth>
-    </CacheProvider>
+    <QueryClientProvider client={queryClient}>
+      <CacheProvider value={createCache(emotionCacheOptions[langDirection])}>
+        <Auth>
+          <BrowserRouter>
+            <FuseAuthorization>
+              <FuseTheme>
+                <SnackbarProvider
+                  maxSnack={5}
+                  anchorOrigin={{
+                    vertical: 'bottom',
+                    horizontal: 'right',
+                  }}
+                  classes={{
+                    containerRoot:
+                      'bottom-0 right-0 mb-52 md:mb-68 mr-8 lg:mr-80 z-99',
+                  }}
+                >
+                  <FuseLayout />
+                </SnackbarProvider>
+              </FuseTheme>
+            </FuseAuthorization>
+          </BrowserRouter>
+        </Auth>
+      </CacheProvider>
+    </QueryClientProvider>
   );
 };
 
