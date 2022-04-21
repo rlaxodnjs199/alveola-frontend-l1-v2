@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Button, Tab, Tabs } from '@mui/material';
+import { Tab, Tabs } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import FusePageSimple from '@fuse/core/FusePageSimple';
 import FuseLoading from '@fuse/core/FuseLoading';
@@ -32,6 +32,11 @@ const QCTWorksheet = () => {
 
   return (
     <Root
+      header={
+        <div className="p-24">
+          <h2>QCT Worksheet</h2>
+        </div>
+      }
       contentToolbar={
         <div className="w-full pt-16 px-16 sm:px-24">
           <Tabs
@@ -59,19 +64,16 @@ const QCTWorksheet = () => {
         <>
           {projectData && (
             <div className="p-24">
-              <Button onClick={() => console.log(proj)}>Checker</Button>
               <div>
-                <TableInstance projectData={projectData} />;
+                <TableInstance projectData={projectData} />
               </div>
             </div>
           )}
-          <div>
-            {selectedTab === false && (
-              <div className="pt-128 text-center uppercase text-sm">
-                Select a project from tabs
-              </div>
-            )}
-          </div>
+          {selectedTab === false && (
+            <div className="pt-128 text-center uppercase text-sm">
+              Select a project from tabs
+            </div>
+          )}
         </>
       }
     />

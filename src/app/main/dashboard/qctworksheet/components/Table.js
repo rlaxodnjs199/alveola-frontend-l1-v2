@@ -1,6 +1,5 @@
-import { useMemo } from 'react';
+import { useState, useMemo } from 'react';
 import {
-  Button,
   Table,
   TableBody,
   TableCell,
@@ -11,7 +10,9 @@ import {
   TableRow,
   TableSortLabel,
   Checkbox,
+  IconButton,
 } from '@mui/material';
+import AddTaskIcon from '@mui/icons-material/AddTask';
 import {
   useGlobalFilter,
   usePagination,
@@ -20,11 +21,14 @@ import {
   useTable,
 } from 'react-table';
 import TablePaginationActions from '@mui/material/TablePagination/TablePaginationActions';
+import CollapsibleRow from './CollapsibleRow';
 
 const TableInstance = ({ projectData }) => {
   const [columns, data] = useMemo(() => {
     return [projectData.columns, projectData.rows];
   }, [projectData]);
+
+  const [rowOpen, setRowOpen] = useState(false);
 
   const {
     getTableProps,
@@ -73,8 +77,15 @@ const TableInstance = ({ projectData }) => {
           <TableHead>
             {headerGroups.map(headerGroup => (
               <TableRow {...headerGroup.getHeaderGroupProps()}>
+                <TableCell>
+                  <IconButton>
+                    <AddTaskIcon />
+                  </IconButton>
+                </TableCell>
+                <TableCell />
                 {headerGroup.headers.map(column => (
                   <TableCell
+                    className="text-center"
                     {...column.getHeaderProps()}
                     // {...(column.id === 'selection'
                     //   ? column.getHeaderProps()
@@ -94,22 +105,11 @@ const TableInstance = ({ projectData }) => {
             ))}
           </TableHead>
           <TableBody {...getTableBodyProps()}>
-            {page.map(row => {
+            {page.map((row, index) => {
               prepareRow(row);
-              return (
-                <TableRow {...row.getRowProps()}>
-                  {row.cells.map(cell => {
-                    return (
-                      <TableCell {...cell.getCellProps()}>
-                        {cell.render('Cell')}
-                      </TableCell>
-                    );
-                  })}
-                </TableRow>
-              );
+              return <CollapsibleRow row={row} key={index} />;
             })}
           </TableBody>
-
           <TableFooter>
             <TableRow>
               <TablePagination

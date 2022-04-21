@@ -33,6 +33,23 @@ const navigationConfig = [
       },
     ],
   },
+  {
+    id: 'report',
+    title: 'Report',
+    translate: 'REPORT',
+    type: 'group',
+    icon: 'apps',
+    children: [
+      {
+        id: 'report1',
+        title: 'Report1',
+        translate: 'REPORT1',
+        type: 'item',
+        icon: 'assignment',
+        url: 'report/report1',
+      },
+    ],
+  },
 ];
 
 export default navigationConfig;

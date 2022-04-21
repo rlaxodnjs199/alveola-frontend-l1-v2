@@ -14,7 +14,7 @@ const routes = [
   ...FuseUtils.generateRoutesFromConfigs(routeConfigs, null),
   {
     path: '/',
-    element: <Navigate to="example" />,
+    element: <Navigate to="dashboard/qctworksheet" />,
   },
   {
     path: 'loading',
