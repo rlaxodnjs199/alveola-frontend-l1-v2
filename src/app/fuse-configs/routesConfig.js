@@ -4,8 +4,9 @@ import ExampleConfig from 'app/main/example/ExampleConfig';
 import FuseLoading from '@fuse/core/FuseLoading';
 import Error404Page from 'app/main/404/Error404Page';
 import DashboardConfig from 'app/main/dashboard/DashboardConfig';
+import ReportConfig from 'app/main/report/ReportConfig';
 
-const routeConfigs = [DashboardConfig, ExampleConfig];
+const routeConfigs = [DashboardConfig, ExampleConfig, ReportConfig];
 
 const routes = [
   // if you want to make whole app auth protected by default change defaultAuth for example:

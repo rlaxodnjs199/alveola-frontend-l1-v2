@@ -5,6 +5,7 @@ import FusePageSimple from '@fuse/core/FusePageSimple';
 import FuseLoading from '@fuse/core/FuseLoading';
 import TableInstance from './components/Table';
 import { useProjectList, useProjectData } from './api/useQCTWorksheet';
+import ProjectChart from './components/ProjectChart';
 
 const Root = styled(FusePageSimple)({
   '& .FusePageSimple-header': {},
@@ -63,11 +64,14 @@ const QCTWorksheet = () => {
       content={
         <>
           {projectData && (
-            <div className="p-24">
-              <div>
+            <>
+              <div className="p-24 w-2/3">
                 <TableInstance projectData={projectData} />
               </div>
-            </div>
+              {/* <div className="p-24 w-1/3">
+                <ProjectChart />
+              </div> */}
+            </>
           )}
           {selectedTab === false && (
             <div className="pt-128 text-center uppercase text-sm">

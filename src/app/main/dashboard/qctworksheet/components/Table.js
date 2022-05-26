@@ -1,5 +1,6 @@
 import { useState, useMemo } from 'react';
 import {
+  Button,
   Table,
   TableBody,
   TableCell,
@@ -11,7 +12,9 @@ import {
   TableSortLabel,
   Checkbox,
   IconButton,
+  Typography,
 } from '@mui/material';
+import BuildIcon from '@mui/icons-material/Build';
 import AddTaskIcon from '@mui/icons-material/AddTask';
 import {
   useGlobalFilter,
@@ -52,6 +55,30 @@ const TableInstance = ({ projectData }) => {
       data,
     },
     usePagination,
+    useRowSelect,
+    hooks => {
+      hooks.visibleColumns.push(tableColumns => [
+        // Let's make a column for selection
+        {
+          id: 'selection',
+          // The header can use the table's getToggleAllRowsSelectedProps method
+          // to render a checkbox
+          Header: ({ getToggleAllRowsSelectedProps }) => (
+            <div>
+              <Checkbox {...getToggleAllRowsSelectedProps()} />
+            </div>
+          ),
+          // The cell can use the individual row's getToggleRowSelectedProps method
+          // to the render a checkbox
+          Cell: ({ row }) => (
+            <div>
+              <Checkbox {...row.getToggleRowSelectedProps()} />
+            </div>
+          ),
+        },
+        ...tableColumns,
+      ]);
+    },
   );
 
   const handleChangePage = (event, newPage) => {
@@ -77,11 +104,6 @@ const TableInstance = ({ projectData }) => {
           <TableHead>
             {headerGroups.map(headerGroup => (
               <TableRow {...headerGroup.getHeaderGroupProps()}>
-                <TableCell>
-                  <IconButton>
-                    <AddTaskIcon />
-                  </IconButton>
-                </TableCell>
                 <TableCell />
                 {headerGroup.headers.map(column => (
                   <TableCell
@@ -135,6 +157,36 @@ const TableInstance = ({ projectData }) => {
           </TableFooter>
         </Table>
       </TableContainer>
+      <div className="flex py-24">
+        <Button
+          variant="outlined"
+          className="bg-orange-300 hover:bg-orange-800 mr-20 rounded-md"
+        >
+          <BuildIcon className="mr-10" />
+          <Typography variant="h6">De-Identification</Typography>
+        </Button>
+        <Button
+          variant="outlined"
+          className="bg-lime-300 hover:bg-lime-800 mr-20 rounded-md"
+        >
+          <BuildIcon className="mr-10" />
+          <Typography variant="h6">Image Registration</Typography>
+        </Button>{' '}
+        <Button
+          variant="outlined"
+          className="bg-teal-300 hover:bg-teal-800 mr-20 rounded-md"
+        >
+          <BuildIcon className="mr-10" />
+          <Typography variant="h6">1D CFD</Typography>
+        </Button>{' '}
+        <Button
+          variant="outlined"
+          className="bg-yellow-300 hover:bg-yellow-800 rounded-md"
+        >
+          <BuildIcon className="mr-10" />
+          <Typography variant="h6">3D CFD</Typography>
+        </Button>
+      </div>
     </>
   );
 };

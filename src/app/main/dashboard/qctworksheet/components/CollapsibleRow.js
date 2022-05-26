@@ -17,15 +17,22 @@ import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 
 const CollapsibleRow = props => {
   const { row } = props;
-  const [rowSelect, setRowSelect] = useState(false);
   const [rowOpen, setRowOpen] = useState(false);
 
   return (
     <>
       <TableRow {...row.getRowProps()}>
-        <TableCell>
-          <Checkbox />
-        </TableCell>
+        {/* <TableCell>
+          <IconButton
+            aria-label="expand row"
+            size="small"
+            onClick={() => {
+              console.log(row);
+            }}
+          >
+            Checker
+          </IconButton>
+        </TableCell> */}
         <TableCell>
           <IconButton
             aria-label="expand row"
