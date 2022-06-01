@@ -163,29 +163,29 @@ const TableInstance = ({ projectData }) => {
           className="bg-orange-300 hover:bg-orange-800 mr-20 rounded-md"
         >
           <BuildIcon className="mr-10" />
-          <Typography variant="h6">De-Identification</Typography>
+          <Typography variant="h6">De-Identify</Typography>
         </Button>
         <Button
           variant="outlined"
           className="bg-lime-300 hover:bg-lime-800 mr-20 rounded-md"
         >
           <BuildIcon className="mr-10" />
-          <Typography variant="h6">Image Registration</Typography>
-        </Button>{' '}
-        <Button
+          <Typography variant="h6">Transfer</Typography>
+        </Button>
+        {/* <Button
           variant="outlined"
           className="bg-teal-300 hover:bg-teal-800 mr-20 rounded-md"
         >
           <BuildIcon className="mr-10" />
           <Typography variant="h6">1D CFD</Typography>
-        </Button>{' '}
+        </Button>
         <Button
           variant="outlined"
           className="bg-yellow-300 hover:bg-yellow-800 rounded-md"
         >
           <BuildIcon className="mr-10" />
           <Typography variant="h6">3D CFD</Typography>
-        </Button>
+        </Button> */}
       </div>
     </>
   );
